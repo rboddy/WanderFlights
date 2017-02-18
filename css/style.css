@@ -1,0 +1,88 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+.planeHero {
+    height: 40%;
+    background-image: url(Plane-take-off.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+.nextRow {
+    height: 20%;
+    background-color: #50638F;
+    color: white;
+}
+.headerBox {
+    width: 40%;
+    background-color: #162955;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+.headerBox2 {
+    width: 50%;
+    background-color: #162955;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    margin-top: 4%;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+.kanye {
+    border-radius: 90px;
+    height: 200px;
+    width: 200px;
+    margin-top: 20px;
+}
+.aboutJumbo {
+    width: 50%;
+    margin-top: 20px;
+    float: left;
+}
+.panel-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.dataPicking {
+    width: 100%;
+}
+.datePicker {
+    width: 100%;
+    border-radius: 5px;
+    height: 50px;
+}
+.plane {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.loginPane {
+    background-color: #2C3B5F;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.enrollPane {
+    background-color: #404B66;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+}
+.questionField {
+    background-color: #162955;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 30px;
+}

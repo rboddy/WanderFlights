@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+</head>
+<body>
+    <style>
+        h1, h2 {
+            font-family: 'Merriweather', serif;
+        }
+    </style>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Wander</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="About.html">Flying Wander</a></li>
+              <li><a href="support.html">Support/FAQ</a></li>
+              <li style="background-color: #162955; width: 200px; text-align: center;"><a style="color: white;" href="book.html">Book a Flight!</a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">View Account</a></li>
+                  <li><a href="#">Edit Account</a></li>
+                </ul>
+              </li>
+                <li class="active"><a href="Login.html">Login/Enroll</a></li>
+                <li><a href="#">Shopping Cart</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <!-- Navbar End -->
+    
+    <!--Content Begins-->
+    <div class="container">
+        <div class="row">
+            <h1>Login or Enroll Below!</h1>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 loginPane">
+                <h2>Login:</h2>
+                <label for="username">Username</label><br>
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">@</span>
+                  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+                </div>
+                <br>
+                <label for="password">Password</label><br>
+                <input type="password" class="form-control" placeholder="Password" id="password"><br>
+                <button class="btn btn-success" id="loginButton">Login</button>
+                
+                <script type="text/javascript">
+                    document.getElementById("loginButton").onclick = function () {
+                        location.href = "index.html";
+                    };
+                </script>
+                
+            </div>
+            <div class="col-md-2 col-lg-2"></div>
+            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 enrollPane">
+                <h2>Enroll:</h2>
+                <h3>Not a member?</h3>
+                <h3>That's okay! Join today and get a list of benefits longer than you can imagine? Want to learn more about what Wander has to offer? Learn all about us <a href="About.html">here!</a> If you're ready to experience those benefits hit that big button below!</h3>
+                <button class="btn btn-lg" id="enrollButton">Enroll!</button>
+                
+                <script type="text/javascript">
+                    document.getElementById("enrollButton").onclick = function () {
+                        location.href = "enroll.html";
+                    };
+                </script>
+                
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        Find us on <a href="">Facebook</a> | &copy; Wander Flights 2017 | Developed by Team 10
+    </div>
+</body>
+</html>
