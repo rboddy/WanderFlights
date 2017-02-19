@@ -17,7 +17,7 @@
     const cPassword = document.getElementById('cPassword');
     const loginBtn = document.getElementById('loginButton');
     const enrollBtn = document.getElementById('enrollButton');
-    const enrollSubmit = document.getElementById('enrollSubmit');
+    const submitBtn = document.getElementById('submitButton');
     
     //add listeners:
     
@@ -37,24 +37,14 @@
     //Enroll Listener
     
     submitBtn.addEventListener('click', e => {
-        
-    if (passwordTxt.value == cPassword.value) {
-        
         //get email and pass
-        //TODO: Check for real email
         const email = emailTxt.value;
         const password = passwordTxt.value;
         const auth = firebase.auth();
-        //Enroll
+        //Sign in:
         
         const promise = auth.createUserWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
-        
-    }
-    else {
-        window.alert("Passwords do not match, please retype them.");
-    }
-        
     });
     
     //add realtime listener
@@ -73,7 +63,7 @@ $(document).ready(function() {
     $('#enrollButton').click(function() {
         $('#confirmPass').show();
         $('#enrollCancel').show();
-        $('#enrollSubmit').show();
+        $('#submitButton').show();
         $('#loginButton').hide();
         $('#enrollButton').hide();
     });
@@ -81,7 +71,7 @@ $(document).ready(function() {
     $('#enrollCancel').click(function() {
         $('#confirmPass').hide();
         $('#enrollCancel').hide();
-        $('#enrollSubmit').hide();
+        $('#submitButton').hide();
         $('#loginButton').show();
         $('#enrollButton').show();
         
