@@ -86,3 +86,12 @@ html {
     color: white;
     margin-bottom: 30px;
 }
+.confirmPass {
+    display: none;
+}
+#enrollCancel {
+    display: none;
+}
+#submitButton {
+    display: none;
+}
