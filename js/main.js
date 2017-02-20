@@ -18,6 +18,7 @@
     const loginBtn = document.getElementById('loginButton');
     const enrollBtn = document.getElementById('enrollButton');
     const submitBtn = document.getElementById('submitButton');
+    const logoutBtn = document.getElementById('logoutBtn');
     
     //add listeners:
     
@@ -32,6 +33,9 @@
         
         const promise = auth.signInWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
+        
+        //page redirect:
+        window.location.replace("localhost:8888/index.html");
     });
     
     //Enroll Listener
@@ -45,15 +49,24 @@
         
         const promise = auth.createUserWithEmailAndPassword(email, password);
         promise.catch(e => console.log(e.message));
+        
+        //page redirect:
+        window.location.replace("localhost:8888/index.html");
+    });
+    
+    logoutBtn.addEventListener('click', e => {
+        firebase.auth().signOut();
     });
     
     //add realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if(firebaseUser){
             console.log(firebaseUser);
+            logoutBtn.classList.remove('hide');
         }
         else {
             console.log("Not Logged In");
+            logoutBtn.classList.add('hide');
         }
     });
 
