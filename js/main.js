@@ -10,7 +10,17 @@
       };
       firebase.initializeApp(config);
     
+    //get elements:
+    
+    const logoutBtn = document.getElementById('logoutBtn');
+    
     //add listeners:
+    
+     //logout Listener
+    
+    logoutBtn.addEventListener('click', e => {
+        firebase.auth().signOut();
+    });
     
     //add realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {

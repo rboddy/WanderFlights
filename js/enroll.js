@@ -54,6 +54,8 @@
         window.location.replace("localhost:8888/index.html");
     });
     
+    //logout Listener
+    
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
     });
