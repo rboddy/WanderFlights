@@ -10,53 +10,7 @@
       };
       firebase.initializeApp(config);
     
-    //get elements:
-    
-    const emailTxt = document.getElementById('emailTxt');
-    const passwordTxt = document.getElementById('passwordTxt');
-    const cPassword = document.getElementById('cPassword');
-    const loginBtn = document.getElementById('loginButton');
-    const enrollBtn = document.getElementById('enrollButton');
-    const submitBtn = document.getElementById('submitButton');
-    const logoutBtn = document.getElementById('logoutBtn');
-    
     //add listeners:
-    
-    //Login in Listener
-    
-    loginBtn.addEventListener('click', e => {
-        //get email and pass
-        const email = emailTxt.value;
-        const password = passwordTxt.value;
-        const auth = firebase.auth();
-        //Sign in:
-        
-        const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));
-        
-        //page redirect:
-        window.location.replace("localhost:8888/index.html");
-    });
-    
-    //Enroll Listener
-    
-    submitBtn.addEventListener('click', e => {
-        //get email and pass
-        const email = emailTxt.value;
-        const password = passwordTxt.value;
-        const auth = firebase.auth();
-        //Sign in:
-        
-        const promise = auth.createUserWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));
-        
-        //page redirect:
-        window.location.replace("localhost:8888/index.html");
-    });
-    
-    logoutBtn.addEventListener('click', e => {
-        firebase.auth().signOut();
-    });
     
     //add realtime listener
     firebase.auth().onAuthStateChanged(firebaseUser => {
@@ -71,22 +25,3 @@
     });
 
 }());
-
-$(document).ready(function() {
-    $('#enrollButton').click(function() {
-        $('#confirmPass').show();
-        $('#enrollCancel').show();
-        $('#submitButton').show();
-        $('#loginButton').hide();
-        $('#enrollButton').hide();
-    });
-    
-    $('#enrollCancel').click(function() {
-        $('#confirmPass').hide();
-        $('#enrollCancel').hide();
-        $('#submitButton').hide();
-        $('#loginButton').show();
-        $('#enrollButton').show();
-        
-    });
-});
