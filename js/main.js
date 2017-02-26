@@ -33,5 +33,30 @@
             logoutBtn.classList.add('hide');
         }
     });
+    
+    
+    //database pull
+    
+    const preObject = document.getElementById('test');
+    
+    const dbRefObject = firebase.database().ref().child('flights');
+    
+    dbRefObject.on('value', snap => {
+    var json = snap.val();
+    var tr;
+    for (var i = 0; i < json.length; i++) {
+        tr = $('<tr/>');
+        tr.append("<td>" + json[i].airliner + "</td>");
+        tr.append("<td>" + json[i].price+ "</td>");
+        tr.append("<td>" + json[i].Departing + "</td>");
+        tr.append("<td>" + json[i].Arriving + "</td>");
+        tr.append("<td>" + json[i].Connecting + "</td>");
+        tr.append("<td>" + json[i].DepartureTime + "</td>");
+        tr.append("<td>" + json[i].ArrivalTime + "</td>");
+        tr.append("<td>" + json[i].Date + "</td>");
+        $('table').append(tr);
+    }
+    });
+    
 
 }());
