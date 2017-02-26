@@ -96,5 +96,16 @@ html {
     display: none;
 }
 .flightDT {
-    
+    background-color: lightblue;
+    width: 100%;
+}
+.flightDT th {
+    background-color: #162955;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.flightDT tr {
+    padding: 10px;
+    text-align: center;
 }

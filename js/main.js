@@ -54,6 +54,7 @@
         tr.append("<td>" + json[i].DepartureTime + "</td>");
         tr.append("<td>" + json[i].ArrivalTime + "</td>");
         tr.append("<td>" + json[i].Date + "</td>");
+        tr.append("<td> <button class='btn btn-primary'>Add to Cart</button> </td>")
         $('table').append(tr);
     }
     });
