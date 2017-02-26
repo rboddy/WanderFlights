@@ -13,6 +13,7 @@
     //get elements:
     
     const logoutBtn = document.getElementById('logoutBtn');
+    const loginTab = document.getElementById('loginTab');
     
     //add listeners:
     
@@ -27,10 +28,12 @@
         if(firebaseUser){
             console.log(firebaseUser);
             logoutBtn.classList.remove('hide');
+            loginTab.classList.add('hide');
         }
         else {
             console.log("Not Logged In");
             logoutBtn.classList.add('hide');
+            loginTab.classList.remove('hide');
         }
     });
     
