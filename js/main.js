@@ -103,4 +103,21 @@ function addToCart(id) {
     shoppingCart.appendChild(li)
     window.alert('Your ' + flightSelected.innerText + ' flight has been added to your cart!');
     document.getElementById('defaultCartMessage').classList.add('hide');
+    sessionStorage.setItem('cartValue', li.innerText);
 }
+
+$(function() {
+    if (sessionStorage.getItem('cartValue') != null){
+    document.getElementById('defaultCartMessage').classList.add('hide');
+    const shoppingCart = document.getElementById('cartList');
+    const li = document.createElement('li');
+    var cart = sessionStorage.getItem('cartValue');
+    li.innerText = cart;
+    shoppingCart.appendChild(li);
+    }
+    else {
+        document.getElementById('defaultCartMessage').classList.remove('hide');
+    }
+});
+
+
