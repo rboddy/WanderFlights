@@ -32,7 +32,7 @@
         //Sign in:
         
         const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));
+        promise.catch(e => window.alert(e.message));
         
     });
     
