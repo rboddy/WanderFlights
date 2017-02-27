@@ -48,6 +48,14 @@
     var json = snap.val();
     var tr;
     for (var i = 0; i < json.length; i++) {
+        
+        
+    var addBtn = document.createElement('BUTTON');
+        addBtn.id = i;
+        addBtn.innerText = 'Add to Cart';
+        addBtn.classList.add('btn');
+        addBtn.classList.add('btn-primary');
+    
         tr = $('<tr/>');
         tr.append("<td>" + json[i].airliner + "</td>");
         tr.append("<td>" + json[i].price+ "</td>");
@@ -57,7 +65,7 @@
         tr.append("<td>" + json[i].DepartureTime + "</td>");
         tr.append("<td>" + json[i].ArrivalTime + "</td>");
         tr.append("<td>" + json[i].Date + "</td>");
-        tr.append("<td> <button class='btn btn-primary'>Add to Cart</button> </td>")
+        tr.append("<td>"+ addBtn.outerHTML +"</td>")
         $('table').append(tr);
     }
     });
