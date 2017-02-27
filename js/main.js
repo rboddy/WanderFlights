@@ -102,4 +102,5 @@ function addToCart(id) {
     li.innerText = flightSelected.innerText + " " + priceOfFlight.innerText;
     shoppingCart.appendChild(li)
     window.alert('Your ' + flightSelected.innerText + ' flight has been added to your cart!');
+    document.getElementById('defaultCartMessage').classList.add('hide');
 }
