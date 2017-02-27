@@ -57,7 +57,7 @@
         addBtn.classList.add('btn-primary');
     
         tr = $('<tr/>');
-        tr.append("<td>" + json[i].airliner + "</td>");
+        tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
         tr.append("<td>" + json[i].price+ "</td>");
         tr.append("<td>" + json[i].Departing + "</td>");
         tr.append("<td>" + json[i].Arriving + "</td>");
@@ -68,8 +68,8 @@
         tr.append("<td>"+ addBtn.outerHTML +"</td>")
         $('table').append(tr);
     }
+        
     });
-    
     
     //modal stuff below:
     // Get the modal
