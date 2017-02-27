@@ -48,24 +48,17 @@
     var json = snap.val();
     var tr;
     for (var i = 0; i < json.length; i++) {
-        
-        
-    var addBtn = document.createElement('BUTTON');
-        addBtn.id = i;
-        addBtn.innerText = 'Add to Cart';
-        addBtn.classList.add('btn');
-        addBtn.classList.add('btn-primary');
     
         tr = $('<tr/>');
         tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-        tr.append("<td>" + json[i].price+ "</td>");
+        tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
         tr.append("<td>" + json[i].Departing + "</td>");
         tr.append("<td>" + json[i].Arriving + "</td>");
         tr.append("<td>" + json[i].Connecting + "</td>");
         tr.append("<td>" + json[i].DepartureTime + "</td>");
         tr.append("<td>" + json[i].ArrivalTime + "</td>");
         tr.append("<td>" + json[i].Date + "</td>");
-        tr.append("<td>"+ addBtn.outerHTML +"</td>")
+        tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
         $('table').append(tr);
     }
         
@@ -100,3 +93,13 @@
     
 
 }());
+
+function addToCart(id) {
+    const flightSelected = document.getElementById('flight' + id);
+    const priceOfFlight = document.getElementById('price' + id);
+    const shoppingCart = document.getElementById('cartList');
+    const li = document.createElement('li');
+    li.innerText = flightSelected.innerText + " " + priceOfFlight.innerText;
+    shoppingCart.appendChild(li)
+    window.alert('Your ' + flightSelected.innerText + ' flight has been added to your cart!');
+}
