@@ -32,7 +32,7 @@
         //Sign in:
         
         const promise = auth.signInWithEmailAndPassword(email, password);
-        promise.catch(e => console.log(e.message));
+        promise.catch(e => window.alert(e.message));
         
     });
     
@@ -55,6 +55,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
+        window.location.replace("http://wanderflights.us/index.html");
     });
     
     //add realtime listener
