@@ -55,6 +55,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
+        window.location.replace("http://wanderflights.us/index.html");
     });
     
     //add realtime listener
