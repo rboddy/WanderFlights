@@ -51,7 +51,7 @@
     
         tr = $('<tr/>');
         tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-        tr.append("<td>" + json[i].price+ "</td>");
+        tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
         tr.append("<td>" + json[i].Departing + "</td>");
         tr.append("<td>" + json[i].Arriving + "</td>");
         tr.append("<td>" + json[i].Connecting + "</td>");
@@ -96,5 +96,10 @@
 
 function addToCart(id) {
     const flightSelected = document.getElementById('flight' + id);
-    window.alert(flightSelected.innerText);
+    const priceOfFlight = document.getElementById('price' + id);
+    const shoppingCart = document.getElementById('cartList');
+    const li = document.createElement('li');
+    li.innerText = flightSelected.innerText + " " + priceOfFlight.innerText;
+    shoppingCart.appendChild(li)
+    window.alert('Your ' + flightSelected.innerText + ' flight has been added to your cart!');
 }
