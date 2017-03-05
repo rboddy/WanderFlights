@@ -122,4 +122,8 @@ $(function() {
     }
 });
 
+function checkout(){
+    window.location.replace('http://wanderflights.us/checkout.html');
+}
+
 
