@@ -116,9 +116,11 @@ $(function() {
     var cart = sessionStorage.getItem('cartValue');
     li.innerText = cart;
     shoppingCart.appendChild(li);
+    document.getElementById('checkoutBtn').classList.remove('hide');
     }
     else {
         document.getElementById('defaultCartMessage').classList.remove('hide');
+        document.getElementById('checkoutBtn').classList.add('hide');
     }
 });
 
