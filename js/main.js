@@ -40,7 +40,7 @@
     });
     
     
-    //database pull
+    //database pull everything
     
     const preObject = document.getElementById('test');
     
@@ -70,26 +70,21 @@
     //search:
     
     var searchBtn = document.getElementById('searchBtn');
-    
-    searchBtn.onclick = function searchFlights(){
-    
-    const departingSearch = document.getElementById('dCityInput');
     const resultModal = document.getElementById('myModal1');
     const closeBtn = document.getElementById('closeBtn');
-        
+    
     closeBtn.onclick = function(){
         resultModal.style.display = "none";
         location.reload();
     }
     
-     window.onclick = function(event) {
-        if (event.target == resultModal) {
-            resultModal.style.display = "none";
-            location.reload();
-        }
-    }
+    
+    searchBtn.onclick = function searchFlights(){
+    
+    const departingSearch = document.getElementById('dCityInput');
+    const arrivingSearch = document.getElementById('aCityInput');
      
-    const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.value))
+    const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.value).trim())
         .on('child_added', snap => {
             var flightCollection = [];
             flightCollection.push(snap.val());
@@ -112,6 +107,13 @@
             
             resultModal.style.display = "block";
         });
+        
+        window.onclick = function(event) {
+        if (event.target == resultModal) {
+            resultModal.style.display = "none";
+            location.reload();
+        }
+    }
     }
     
     //modal stuff below:
