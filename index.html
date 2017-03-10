@@ -57,13 +57,24 @@
     
      <div id="myModal" class="modal">
 
-      <!-- Modal content -->
+      <!-- Modal Shopping Cart -->
       <div class="modal-content">
         <h2>Your Cart</h2>
         <span class="close">&times;</span>
         <p class='none' id='defaultCartMessage'>Nothing in your cart yet! Book a flight and come back here.</p>
           <ul id='cartList' class='cartList'></ul>
           <button class="btn btn-success" id="checkoutBtn" onclick="checkout()">Checkout</button>
+      </div>
+
+    </div>
+    
+    <div id="myModal1" class="modal">
+
+      <!-- Modal Shopping Cart -->
+      <div class="modal-content">
+        <h2>We Found These Flights</h2>
+        <span class="close" id="closeBtn">&times;</span>
+           <pre id="foundFlights">Testing</pre>
       </div>
 
     </div>
@@ -78,7 +89,7 @@
                 <label>Flying from:</label> <input placeholder="Enter City" class="form-control" id="dCityInput" type="text">
                 <label>Flying to:</label> <input placeholder="Enter City" class="form-control" id="aCityInput" type="text">
                 <label>On Date:</label> <input class="datePicker" id="dateFlying" type="date">
-                <button class="btn btn-default searchBtn">Find Flights</button>
+                <button class="btn btn-default searchBtn" id="searchBtn">Find Flights</button>
                 </div>
                 <h2 style="margin-top: 30%; color: white;">You have tried the rest now try the best. Wander hosts best in class customer service and leads the industry in customer satisfaction.</h2>
             </div>

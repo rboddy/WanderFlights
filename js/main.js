@@ -66,6 +66,30 @@
         
     });
     
+    //Database Query on Search or select:
+    //search:
+    
+    var searchBtn = document.getElementById('searchBtn');
+    
+    searchBtn.onclick = function searchFlights(){
+    
+    const departingSearch = document.getElementById('dCityInput');
+    const resultModal = document.getElementById('myModal1');
+    const closeBtn = document.getElementById('closeBtn');
+    closeBtn.onclick = function(){
+        resultModal.style.display = "none";
+    }
+    var flightCollection = [];
+    const resultSet = dbRefObject.orderByChild('Departing').equalTo(departingSearch.value)
+        .on('child_added', snap => {
+            flightCollection.push(snap.val());
+            var json = JSON.stringify(flightCollection);
+            document.getElementById('foundFlights').innerText = json;
+            console.log(flightCollection);
+            resultModal.style.display = "block";
+        });
+    }
+    
     //modal stuff below:
     // Get the modal
     var modal = document.getElementById('myModal');
