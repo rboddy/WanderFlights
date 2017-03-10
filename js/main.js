@@ -76,15 +76,23 @@
     const departingSearch = document.getElementById('dCityInput');
     const resultModal = document.getElementById('myModal1');
     const closeBtn = document.getElementById('closeBtn');
+        
     closeBtn.onclick = function(){
         resultModal.style.display = "none";
         location.reload();
     }
+    
+     window.onclick = function(event) {
+        if (event.target == resultModal) {
+            resultModal.style.display = "none";
+            location.reload();
+        }
+    }
+     
     const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.value))
         .on('child_added', snap => {
             var flightCollection = [];
             flightCollection.push(snap.val());
-            window.alert(snap.val());
             var json = flightCollection;
             var tr;
             for (var i = 0; i < json.length; i++) {
