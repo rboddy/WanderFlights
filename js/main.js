@@ -46,130 +46,25 @@
     
     const dbRefObject = firebase.database().ref().child('flights');
     
-//    dbRefObject.on('value', snap => {
-//    var json = snap.val();
-//    var tr;
-//    for (var i = 0; i < json.length; i++) {
-//    
-//        tr = $('<tr/>');
-//        tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-//        tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-//        tr.append("<td>" + json[i].Departing + "</td>");
-//        tr.append("<td>" + json[i].Arriving + "</td>");
-//        tr.append("<td>" + json[i].Connecting + "</td>");
-//        tr.append("<td>" + json[i].DepartureTime + "</td>");
-//        tr.append("<td>" + json[i].ArrivalTime + "</td>");
-//        tr.append("<td>" + json[i].Date + "</td>");
-//        tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
-//        $('table').append(tr);
-//    }
-//        
-//    });
+    dbRefObject.on('value', snap => {
+    var json = snap.val();
+    var tr;
+    for (var i = 0; i < json.length; i++) {
     
-    //Database Query on Search or select:
-    //search:
-    
-    var searchBtn = document.getElementById('searchBtn');
-    const resultModal = document.getElementById('myModal1');
-    const closeBtn = document.getElementById('closeBtn');
-    
-    closeBtn.onclick = function(){
-        resultModal.style.display = "none";
-        location.reload();
+        tr = $('<tr/>');
+        tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
+        tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
+        tr.append("<td>" + json[i].Departing + "</td>");
+        tr.append("<td>" + json[i].Arriving + "</td>");
+        tr.append("<td>" + json[i].Connecting + "</td>");
+        tr.append("<td>" + json[i].DepartureTime + "</td>");
+        tr.append("<td>" + json[i].ArrivalTime + "</td>");
+        tr.append("<td>" + json[i].Date + "</td>");
+        tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
+        $('table').append(tr);
     }
-    
-    
-    searchBtn.onclick = function searchFlights(){ //search button function start
-    
-    const departingSearch = document.getElementById('dCityInput');
-    const arrivingSearch = document.getElementById('aCityInput');
         
-    if (arrivingSearch.value == ''){ //search input check start
-    const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.value).trim())
-        .on('child_added', snap => { //snap callback start
-            var flightCollection = [];
-            flightCollection.push(snap.val());
-            var json = flightCollection;
-            var tr;
-            for (var i = 0; i < json.length; i++) { //table for loop start
-
-                tr = $('<tr/>');
-                tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-                tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-                tr.append("<td>" + json[i].Departing + "</td>");
-                tr.append("<td>" + json[i].Arriving + "</td>");
-                tr.append("<td>" + json[i].Connecting + "</td>");
-                tr.append("<td>" + json[i].DepartureTime + "</td>");
-                tr.append("<td>" + json[i].ArrivalTime + "</td>");
-                tr.append("<td>" + json[i].Date + "</td>");
-                tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
-                $('table').append(tr);
-            } // table for loop end
-            
-            resultModal.style.display = "block";
-        }); //snap callback end
-    } //search input check end
-        
-    if (departingSearch.value == ''){ //search input check start
-        const resultSet = dbRefObject.orderByChild('Arriving').equalTo(toTitleCase(arrivingSearch.value).trim())
-        .on('child_added', snap => { //snap callback start
-            var flightCollection = [];
-            flightCollection.push(snap.val());
-            var json = flightCollection;
-            var tr;
-            for (var i = 0; i < json.length; i++) { //table for loop start
-
-                tr = $('<tr/>');
-                tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-                tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-                tr.append("<td>" + json[i].Departing + "</td>");
-                tr.append("<td>" + json[i].Arriving + "</td>");
-                tr.append("<td>" + json[i].Connecting + "</td>");
-                tr.append("<td>" + json[i].DepartureTime + "</td>");
-                tr.append("<td>" + json[i].ArrivalTime + "</td>");
-                tr.append("<td>" + json[i].Date + "</td>");
-                tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
-                $('table').append(tr);
-            } // table for loop end
-            
-            resultModal.style.display = "block";
-        }); //snap callback end
-    } //search input check end
-        
-    if (departingSearch.value != '' && arrivingSearch.value != ''){ //double search input start
-        const resultSet = dbRefObject.orderByChild('CityCombo').equalTo(
-            toTitleCase(arrivingSearch.value).trim() + ' ' + toTitleCase(departingSearch.value).trim()  
-        )
-        .on('child_added', snap => { //snap callback start
-            var flightCollection = [];
-            flightCollection.push(snap.val());
-            var json = flightCollection;
-            var tr;
-            for (var i = 0; i < json.length; i++) { //table for loop start
-
-                tr = $('<tr/>');
-                tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
-                tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-                tr.append("<td>" + json[i].Departing + "</td>");
-                tr.append("<td>" + json[i].Arriving + "</td>");
-                tr.append("<td>" + json[i].Connecting + "</td>");
-                tr.append("<td>" + json[i].DepartureTime + "</td>");
-                tr.append("<td>" + json[i].ArrivalTime + "</td>");
-                tr.append("<td>" + json[i].Date + "</td>");
-                tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
-                $('table').append(tr);
-            } // table for loop end
-            
-            resultModal.style.display = "block";
-        }); //snap callback end
-    } // double search input end
-        window.onclick = function(event) { //modal clickaway start
-        if (event.target == resultModal) { //modal if start 
-            resultModal.style.display = "none";
-            location.reload();
-        } //modal if end
-        } // modal clickaway end 
-    } // search button function end
+    });
     
     //modal stuff below:
     // Get the modal
