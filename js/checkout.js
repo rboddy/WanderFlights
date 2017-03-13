@@ -74,7 +74,7 @@
 const paymentBtn = document.getElementById('payBtn');
 
 paymentBtn.addEventListener('click', e => {
-   window.location.replace(); 
+   window.location.replace('http://127.0.0.1:49504/receipt.html'); 
 });
 
 $(function() {
