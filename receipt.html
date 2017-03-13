@@ -40,7 +40,10 @@
             var homeBtn = document.getElementById('homeBtn');
         homeBtn.addEventListener('click', e => {
             window.location.replace('http://127.0.0.1:49504/index.html');
-        })
+        });
+        
+         var flightBox = document.getElementById('flight');
+        flightBox.innerHTML = sessionStorage.getItem('flightSelected');
     </script>
     <script src="js/checkout.js"></script>
 </body>
