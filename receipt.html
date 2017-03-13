@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Thank You!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase-messaging.js"></script>
+</head>
+<body>
+    
+    <div class="container" style="margin-bottom: 100px;">
+    
+        <div class="jumbotron" style="margin-top: 50px;">
+            <h1>Thank You for your Order!</h1>
+            <h2>You made a great choice!</h2>
+            Here are your flight details:
+            <div id="flight"></div>
+            
+            Your tickets have been emailed to the email you used to create your account! <br>
+            <button class="btn btn-default" id="homeBtn">Go to Home</button>
+        </div>
+        
+    </div>
+    
+    <div class="panel-footer">
+        Find us on <a href="https://www.facebook.com/Wander-382029945501392/">Facebook</a> | &copy; Wander Flights 2017 | Developed by Team 10
+    </div>
+    
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>    
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+            var homeBtn = document.getElementById('homeBtn');
+        homeBtn.addEventListener('click', e => {
+            window.location.replace('http://127.0.0.1:49504/index.html');
+        })
+    </script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
