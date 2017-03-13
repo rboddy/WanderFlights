@@ -70,6 +70,13 @@
 
 }());
 
+//payment button redirect below:
+const paymentBtn = document.getElementById('payBtn');
+
+paymentBtn.addEventListener('click', e => {
+   window.location.replace(); 
+});
+
 $(function() {
     const flight = document.getElementById('flight');
     flight.innerHTML = sessionStorage.getItem('flightSelected');
