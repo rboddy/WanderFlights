@@ -125,17 +125,17 @@
             flightCollection.push(snap.val());
             var json = flightCollection;
             var tr;
-            for (var i = 0; i < json.length; i++) { //table for loop start
-
+            for (var i = 0; i < json.length; i++) {
+    
                 tr = $('<tr/>');
                 tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
                 tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-                tr.append("<td>" + json[i].Departing + "</td>");
-                tr.append("<td>" + json[i].Arriving + "</td>");
-                tr.append("<td>" + json[i].Connecting + "</td>");
-                tr.append("<td>" + json[i].DepartureTime + "</td>");
-                tr.append("<td>" + json[i].ArrivalTime + "</td>");
-                tr.append("<td>" + json[i].Date + "</td>");
+                tr.append("<td id='" + 'departing' + i + "'>" + json[i].Departing + "</td>");
+                tr.append("<td id='" + 'arriving' + i + "'>" + json[i].Arriving + "</td>");
+                tr.append("<td id='" + 'connecting' + i + "'>" + json[i].Connecting + "</td>");
+                tr.append("<td id='" + 'dTime' + i + "'>" + json[i].DepartureTime + "</td>");
+                tr.append("<td id='" + 'aTime' + i + "'>" + json[i].ArrivalTime + "</td>");
+                tr.append("<td id='" + 'date' + i + "'>" + json[i].Date + "</td>");
                 tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
                 $('table').append(tr);
             } // table for loop end
