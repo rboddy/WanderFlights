@@ -125,17 +125,17 @@
             flightCollection.push(snap.val());
             var json = flightCollection;
             var tr;
-            for (var i = 0; i < json.length; i++) { //table for loop start
-
+            for (var i = 0; i < json.length; i++) {
+    
                 tr = $('<tr/>');
                 tr.append("<td id='" + 'flight' + i + "'>" + json[i].airliner + "</td>");
                 tr.append("<td id='" + 'price' + i + "'>" + json[i].price+ "</td>");
-                tr.append("<td>" + json[i].Departing + "</td>");
-                tr.append("<td>" + json[i].Arriving + "</td>");
-                tr.append("<td>" + json[i].Connecting + "</td>");
-                tr.append("<td>" + json[i].DepartureTime + "</td>");
-                tr.append("<td>" + json[i].ArrivalTime + "</td>");
-                tr.append("<td>" + json[i].Date + "</td>");
+                tr.append("<td id='" + 'departing' + i + "'>" + json[i].Departing + "</td>");
+                tr.append("<td id='" + 'arriving' + i + "'>" + json[i].Arriving + "</td>");
+                tr.append("<td id='" + 'connecting' + i + "'>" + json[i].Connecting + "</td>");
+                tr.append("<td id='" + 'dTime' + i + "'>" + json[i].DepartureTime + "</td>");
+                tr.append("<td id='" + 'aTime' + i + "'>" + json[i].ArrivalTime + "</td>");
+                tr.append("<td id='" + 'date' + i + "'>" + json[i].Date + "</td>");
                 tr.append("<td> <button class='btn btn-primary' id='" + i + "' onclick='addToCart(" + i + ")'>Add to Cart</button> </td>")
                 $('table').append(tr);
             } // table for loop end
@@ -182,15 +182,30 @@
 }());
 
 function addToCart(id) {
-    const flightSelected = document.getElementById('flight' + id);
+    
+    //get all the details about the flight from the table:
+    
+    const airLiner = document.getElementById('flight' + id);
     const priceOfFlight = document.getElementById('price' + id);
+    const flightDeparting = document.getElementById('departing' + id);
+    const flightArriving = document.getElementById('arriving' + id);
+    const flightConnecting = document.getElementById('connecting' + id);
+    const departureTime = document.getElementById('dTime' + id);
+    const arrivalTime = document.getElementById('aTime' + id);
+    const flightDate = document.getElementById('date' + id);
+    
+    const flightDetails = "<ul style='list-style: none'><li>Airliner: " + airLiner.innerText + "</li><li>Price: " + priceOfFlight.innerText + "</li><li>Departing From: " + flightDeparting.innerText + "</li><li>Arriving In: " + flightArriving.innerText + "</li><li>Connecting In: " + flightConnecting.innerText + "</li><li>Departure Time: " + departureTime.innerText + "</li><li>Arrival Time: " + arrivalTime.innerText + "</li><li>Date: " + flightDate.innerText + "</li></ul>"
+    
+    //add to shopping cart below and create session item for the flight selected so that they match up for checkout:
+    
     const shoppingCart = document.getElementById('cartList');
     const li = document.createElement('li');
-    li.innerText = flightSelected.innerText + " " + priceOfFlight.innerText;
+    li.innerText = airLiner.innerText + " " + priceOfFlight.innerText;
     shoppingCart.appendChild(li)
-    window.alert('Your ' + flightSelected.innerText + ' flight has been added to your cart!');
+    window.alert('Your ' + airLiner.innerText + ' flight has been added to your cart!');
     document.getElementById('defaultCartMessage').classList.add('hide');
     sessionStorage.setItem('cartValue', li.innerText);
+    sessionStorage.setItem('flightSelected', flightDetails);
 }
 
 $(function() {
@@ -210,7 +225,7 @@ $(function() {
 });
 
 function checkout(){
-    window.location.replace('http://wanderflights.us/checkout.html');
+    window.location.replace('http://127.0.0.1:49504/checkout.html');
 }
 function toTitleCase(str)
 {

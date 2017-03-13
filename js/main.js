@@ -140,7 +140,7 @@ $(function() {
 });
 
 function checkout(){
-    window.location.replace('http://127.0.0.1:59688/checkout.html');
+    window.location.replace('http://127.0.0.1:49504/checkout.html');
 }
 function toTitleCase(str)
 {
