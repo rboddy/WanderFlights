@@ -22,7 +22,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
-        window.location.replace("http://wanderflights.us/index.html");
+        window.location.replace("http://" + window.location.host + "/index.html");
     });
     
     //add realtime listener
@@ -64,8 +64,8 @@
     const departingSearch = document.getElementById('dCityInput');
     const arrivingSearch = document.getElementById('aCityInput');
         
-    if (arrivingSearch.value == ''){ //search input check start
-    const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.value).trim())
+    if (arrivingSearch.options[arrivingSearch.selectedIndex].text == '-- Select City --'){ //search input check start
+    const resultSet = dbRefObject.orderByChild('Departing').equalTo(toTitleCase(departingSearch.options[departingSearch.selectedIndex].text).trim())
         .on('child_added', snap => { //snap callback start
             var flightCollection = [];
             flightCollection.push(snap.val());
@@ -90,8 +90,8 @@
         }); //snap callback end
     } //search input check end
         
-    if (departingSearch.value == ''){ //search input check start
-        const resultSet = dbRefObject.orderByChild('Arriving').equalTo(toTitleCase(arrivingSearch.value).trim())
+    if (departingSearch.options[departingSearch.selectedIndex].text == '-- Select City --'){ //search input check start
+        const resultSet = dbRefObject.orderByChild('Arriving').equalTo(toTitleCase(arrivingSearch.options[arrivingSearch.selectedIndex].text).trim())
         .on('child_added', snap => { //snap callback start
             var flightCollection = [];
             flightCollection.push(snap.val());
@@ -116,10 +116,9 @@
         }); //snap callback end
     } //search input check end
         
-    if (departingSearch.value != '' && arrivingSearch.value != ''){ //double search input start
+    if (departingSearch.options[departingSearch.selectedIndex].text != '-- Select City --' && arrivingSearch.options[arrivingSearch.selectedIndex].text != '-- Select City --'){ //double search input start
         const resultSet = dbRefObject.orderByChild('CityCombo').equalTo(
-            toTitleCase(arrivingSearch.value).trim() + ' ' + toTitleCase(departingSearch.value).trim()  
-        )
+            toTitleCase(arrivingSearch.value).trim() + ' ' + toTitleCase(departingSearch.options[departingSearch.selectedIndex].text).trim())
         .on('child_added', snap => { //snap callback start
             var flightCollection = [];
             flightCollection.push(snap.val());
@@ -225,7 +224,7 @@ $(function() {
 });
 
 function checkout(){
-    window.location.replace('http://127.0.0.1:49504/checkout.html');
+    window.location.replace('http://' + window.location.host + '/checkout.html');
 }
 function toTitleCase(str)
 {

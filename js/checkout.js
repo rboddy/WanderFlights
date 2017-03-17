@@ -22,7 +22,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
-        window.location.replace("http://wanderflights.us/index.html");
+        window.location.replace("http://" + window.location.host + "/index.html");
     });
     
     //add realtime listener
@@ -74,7 +74,7 @@
 const paymentBtn = document.getElementById('payNow');
 
 paymentBtn.addEventListener('click', e => {
-   window.location.replace('http://127.0.0.1:49504/receipt.html'); 
+   window.location.replace('http://' + window.location.host + '/receipt.html'); 
 });
 
 $(function() {
@@ -83,7 +83,7 @@ $(function() {
 });
 
 function checkout(){
-    window.location.replace('http://wanderflights.us/checkout.html');
+    window.location.replace('http://' + window.location.host + '/checkout.html');
 }
 function toTitleCase(str)
 {

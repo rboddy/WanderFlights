@@ -55,7 +55,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
-        window.location.replace("http://wanderflights.us/index.html");
+        window.location.replace("http://" + window.location.host + "/index.html");
     });
     
     //add realtime listener
@@ -63,7 +63,7 @@
         if(firebaseUser){
             console.log(firebaseUser);
             logoutBtn.classList.remove('hide');
-            window.location.replace("http://wanderflights.us/index.html");
+            window.location.replace("http://" + window.location.host + "/index.html");
             sessionStorage.clear();
         }
         else {
