@@ -22,7 +22,7 @@
     logoutBtn.addEventListener('click', e => {
         firebase.auth().signOut();
         sessionStorage.clear();
-        window.location.replace("http://wanderflights.us/index.html");
+        window.location.replace("http://" + window.location.host + "/index.html");
     });
     
     //add realtime listener
@@ -140,7 +140,7 @@ $(function() {
 });
 
 function checkout(){
-    window.location.replace('http://127.0.0.1:49504/checkout.html');
+    window.location.replace('http://' + window.location.host + '/checkout.html');
 }
 function toTitleCase(str)
 {
